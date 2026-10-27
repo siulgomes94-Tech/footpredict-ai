@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FootPredict — Analyse & prévisions</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#17253b;--line:#263750;--text:#edf3fb;--muted:#9db0c8;--green:#45d483;--blue:#73a8ff;--amber:#ffc766;--red:#ff8585}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#08111f,#101c2d 55%,#0b1220);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;gap:12px;align-items:center}.logo{background:var(--green);color:#082016;font-weight:900;border-radius:13px;width:45px;height:45px;display:grid;place-items:center;font-size:21px}.brand h1{font-size:22px;margin:0;letter-spacing:-.5px}.brand p{margin:1px 0;color:var(--muted);font-size:12px}.pill{border:1px solid #356b55;color:#8ff0b6;background:#123426;border-radius:999px;padding:6px 10px;font-size:12px}.hero{padding:24px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at top right,#203b50 0,transparent 55%),var(--panel);margin-bottom:18px}.eyebrow{color:var(--green);font-weight:800;font-size:11px;letter-spacing:1.6px;text-transform:uppercase}.hero h2{font-size:clamp(24px,4vw,36px);line-height:1.12;margin:8px 0 10px;max-width:700px}.hero p{color:var(--muted);max-width:720px;margin:0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.metric,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.metric small{color:var(--muted)}.metric strong{display:block;font-size:23px;margin-top:4px}.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}.section-title h3{font-size:17px;margin:0}.sub{color:var(--muted);font-size:12px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}label{display:block;color:var(--muted);font-size:12px;margin-bottom:5px}select,input{width:100%;background:#0c1728;border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--text);outline:none}select:focus,input:focus{border-color:var(--blue)}.match{padding:14px;border:1px solid var(--line);border-radius:14px;background:#0e192a;margin-top:10px}.match-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.league{font-size:11px;color:var(--muted)}.teams{font-size:15px;font-weight:750;margin:7px 0}.match-meta{font-size:12px;color:var(--muted)}.match button,.primary{background:var(--green);border:0;color:#082016;font-weight:800;padding:9px 12px;border-radius:10px}.match button{font-size:12px;white-space:nowrap}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.probrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.prob{padding:12px 8px;background:#0b1727;border:1px solid var(--line);border-radius:12px;text-align:center}.prob span{display:block;font-size:12px;color:var(--muted)}.prob strong{font-size:23px}.bar{height:7px;background:#263750;border-radius:10px;overflow:hidden;margin-top:7px}.bar i{display:block;height:100%;background:var(--green)}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;color:var(--muted)}.chip b{color:var(--text)}.table{width:100%;border-collapse:collapse;font-size:13px}.table td,.table th{padding:10px 4px;border-bottom:1px solid var(--line);text-align:left}.table th{color:var(--muted);font-weight:600}.table td:last-child,.table th:last-child{text-align:right}.value{color:var(--green);font-weight:800}.warning{background:#302719;border:1px solid #6d542e;border-radius:12px;padding:12px;color:#ffdda1;font-size:12px;margin-top:14px}.muted{color:var(--muted)}.footer{color:var(--muted);font-size:12px;text-align:center;margin:20px 0 6px}.tag{font-size:10px;padding:4px 7px;border-radius:6px;background:#25364d;color:#c7d7ed}.smallnote{font-size:12px;color:var(--muted);margin-top:8px}.odds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.secondary{background:#203149;color:var(--text);border:1px solid var(--line);padding:9px 12px;border-radius:10px;font-weight:700}
+@media(max-width:800px){.wrap{padding:14px}.layout{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.pill{max-width:125px;text-align:center}.hero{padding:19px}.metric{padding:13px}.metric strong{font-size:20px}}
+@media(max-width:420px){.controls,.formrow{grid-template-columns:1fr}.match-head{align-items:flex-start}.match button{white-space:normal}.brand h1{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">FP</div><div><h1>FootPredict <span style="color:var(--green)">AI</span></h1><p>Analyse statistique · Probabilités · Cotes</p></div></div><span class="pill">Prototype interactif</span></header>
+<section class="hero"><div class="eyebrow">Le laboratoire des matchs</div><h2>Des chiffres avant les pronostics.</h2><p>Explore les rencontres, estime les probabilités 1N2 et buts, puis compare tes cotes avec le modèle. Les données affichées sont fictives pour cette première maquette : aucun flux sportif en direct n'est connecté.</p></section>
+<div class="metrics">
+<div class="metric"><small>Compétitions ciblées</small><strong>6+</strong><span class="sub">Europe & C1</span></div>
+<div class="metric"><small>Marchés estimés</small><strong>5</strong><span class="sub">1N2, buts, BTTS</span></div>
+<div class="metric"><small>Méthode de départ</small><strong>Poisson</strong><span class="sub">Buts attendus simulés</span></div>
+<div class="metric"><small>Flux en direct</small><strong style="color:var(--amber)">À connecter</strong><span class="sub">API requise</span></div>
+</div>
+<div class="layout">
+<section class="card"><div class="section-title"><h3>Rencontres à analyser</h3><span class="tag">Exemples</span></div>
+<div class="controls"><div><label for="league">Compétition</label><select id="league"><option value="all">Toutes</option><option>Premier League</option><option>La Liga</option><option>Serie A</option><option>Bundesliga</option><option>Ligue 1</option><option>Ligue des champions</option></select></div><div><label for="market">Trier les matchs</label><select id="market"><option value="date">Par rencontre</option><option value="home">Favori domicile</option><option value="goals">Potentiel de buts</option></select></div></div>
+<div id="matches"></div>
+<div class="smallnote">Choisis « Analyser » pour calculer les probabilités du match. Les équipes et chiffres ci-dessous servent uniquement à tester l'application.</div>
+</section>
+<section class="card"><div class="section-title"><h3 id="analysisTitle">Analyse du match</h3><span class="tag">Modèle démo</span></div>
+<div id="analysis">
+<div class="muted">Sélectionne un match dans la liste pour afficher son analyse.</div>
+<div class="warning">Important : une probabilité n'est pas une certitude. Les estimations ne sont pas des conseils financiers et ne garantissent aucun gain.</div>
+</div>
+</section>
+</div>
+<section class="card" style="margin-top:16px"><div class="section-title"><h3>Comparer les cotes</h3><span class="sub">Saisie manuelle · cotes décimales</span></div>
+<p class="sub">Entre les cotes 1 / N / 2 du bookmaker. Le calcul retire la marge approximative du bookmaker et compare le résultat à l'estimation du modèle pour le match sélectionné.</p>
+<div class="formrow"><div><label for="odd1">Cote victoire domicile (1)</label><input id="odd1" type="number" min="1.01" step=".01" value="2.10"></div><div><label for="oddx">Cote match nul (N)</label><input id="oddx" type="number" min="1.01" step=".01" value="3.40"></div></div>
+<div class="formrow" style="margin-top:10px"><div><label for="odd2">Cote victoire extérieur (2)</label><input id="odd2" type="number" min="1.01" step=".01" value="3.60"></div><div style="display:flex;align-items:end"><button class="primary" style="width:100%" id="compare">Comparer les cotes</button></div></div>
+<div id="oddsResult" class="smallnote">Sélectionne un match, puis compare les cotes.</div>
+</section>
+<section class="card" style="margin-top:16px"><div class="section-title"><h3>Sources de données à connecter</h3><span class="tag">Étape suivante</span></div>
+<table class="table"><thead><tr><th>Besoin</th><th>Source possible</th><th>À savoir</th></tr></thead><tbody>
+<tr><td>Calendrier, résultats, classements</td><td><a href="https://www.football-data.org/" target="_blank" rel="noreferrer" style="color:var(--blue)">football-data.org</a></td><td>API avec quotas et compétitions selon l'offre</td></tr>
+<tr><td>Stats, absences, compositions, cotes</td><td><a href="https://www.api-football.com/" target="_blank" rel="noreferrer" style="color:var(--blue)">API-Football</a></td><td>Vérifier la couverture par ligue et abonnement</td></tr>
+<tr><td>Historique avancé / xG</td><td><a href="https://github.com/statsbomb/open-data" target="_blank" rel="noreferrer" style="color:var(--blue)">StatsBomb Open Data</a></td><td>Gratuit mais couverture limitée, surtout pour l'entraînement</td></tr>
+<tr><td>Cotes multi-bookmakers</td><td>Fournisseur spécialisé de cotes</td><td>Comparer fréquence de mise à jour, historique, droits d'usage et coût</td></tr>
+</tbody></table>
+<div class="warning">Pour une version publique, la clé API doit rester sur un serveur, jamais dans le code du navigateur. Il faudra aussi vérifier les conditions de licence, les limites d'appels et les droits d'affichage des données.</div>
+</section>
+<div class="footer">FootPredict AI · Prototype local · Données de démonstration, non mises à jour en direct.</div>
+</div>
+<script>
+const games=[
+{id:1,league:"Premier League",home:"Arsenal",away:"Chelsea",date:"Exemple · samedi 15:00",lh:1.82,la:1.15,odds:[1.95,3.55,3.85],formH:"V V N V D",formA:"V N V D V",homeRate:1.9,awayRate:1.1},
+{id:2,league:"La Liga",home:"Real Madrid",away:"Atlético Madrid",date:"Exemple · samedi 20:00",lh:1.65,la:1.05,odds:[1.85,3.35,4.4],formH:"V V V N V",formA:"N V V N D",homeRate:1.7,awayRate:1.1},
+{id:3,league:"Serie A",home:"Inter",away:"Juventus",date:"Exemple · dimanche 18:00",lh:1.55,la:1.05,odds:[2.15,3.1,3.6],formH:"V V N V V",formA:"V N V V D",homeRate:1.6,awayRate:1.0},
+{id:4,league:"Bundesliga",home:"Bayern Munich",away:"Dortmund",date:"Exemple · dimanche 17:30",lh:2.15,la:1.4,odds:[1.62,4.2,4.8],formH:"V V V V N",formA:"V D V N V",homeRate:2.3,awayRate:1.5},
+{id:5,league:"Ligue 1",home:"PSG",away:"Marseille",date:"Exemple · dimanche 20:45",lh:2.0,la:1.1,odds:[1.55,4.1,5.3],formH:"V V V N V",formA:"V N D V V",homeRate:2.0,awayRate:1.1},
+{id:6,league:"Ligue des champions",home:"Manchester City",away:"Real Madrid",date:"Exemple · mardi 21:00",lh:1.75,la:1.35,odds:[2.0,3.7,3.45],formH:"V V N V V",formA:"V V N V D",homeRate:1.8,awayRate:1.4}
+];
+let selected=games[0], current=null;
+function poisson(k,l){return Math.exp(-l)*Math.pow(l,k)/fact(k)}
+function fact(n){let x=1;for(let i=2;i<=n;i++)x*=i;return x}
+function calc(g){let h=0,d=0,a=0,over25=0,btts=0, scores=[];for(let i=0;i<=8;i++)for(let j=0;j<=8;j++){let p=poisson(i,g.lh)*poisson(j,g.la);if(i>j)h+=p;else if(i===j)d+=p;else a+=p;if(i+j>=3)over25+=p;if(i>0&&j>0)btts+=p;scores.push({s:i+"–"+j,p})}scores.sort((x,y)=>y.p-x.p);return {h,d,a,over25,btts,scores,under25:1-over25,lambda:g.lh+g.la}}
+function pct(x){return (x*100).toFixed(1)+"%"}
+function renderMatches(){let league=document.getElementById("league").value,arr=games.filter(g=>league==="all"||g.league===league);let sort=document.getElementById("market").value;if(sort==="home")arr.sort((a,b)=>b.homeRate-a.homeRate);if(sort==="goals")arr.sort((a,b)=>(b.lh+b.la)-(a.lh+a.la));document.getElementById("matches").innerHTML=arr.map(g=>`<div class="match"><div class="match-head"><div><div class="league">${g.league}</div><div class="teams">${g.home} <span class="muted">vs</span> ${g.away}</div><div class="match-meta">${g.date} · données fictives</div></div><button onclick="analyze(${g.id})">Analyser →</button></div></div>`).join("")||'<p class="muted">Aucun match dans ce filtre.</p>'}
+function analyze(id){selected=games.find(g=>g.id===id);current=calc(selected);document.getElementById("analysisTitle").textContent=selected.home+" — "+selected.away;document.getElementById("odd1").value=selected.odds[0];document.getElementById("oddx").value=selected.odds[1];document.getElementById("odd2").value=selected.odds[2];document.getElementById("analysis").innerHTML=`
+<div class="sub">${selected.league} · ${selected.date} · simulation</div>
+<div class="probrow"><div class="prob"><span>1 · ${selected.home}</span><strong>${pct(current.h)}</strong><div class="bar"><i style="width:${current.h*100}%"></i></div></div><div class="prob"><span>N · Nul</span><strong>${pct(current.d)}</strong><div class="bar"><i style="width:${current.d*100}%"></i></div></div><div class="prob"><span>2 · ${selected.away}</span><strong>${pct(current.a)}</strong><div class="bar"><i style="width:${current.a*100}%"></i></div></div></div>
+<div class="chips"><span class="chip">Buts attendus <b>${current.lambda.toFixed(2)}</b></span><span class="chip">Plus de 2,5 <b>${pct(current.over25)}</b></span><span class="chip">BTTS Oui <b>${pct(current.btts)}</b></span></div>
+<div class="section-title" style="margin-top:18px"><h3>Scores exacts les plus probables</h3><span class="sub">Poisson indépendant</span></div>
+<table class="table"><thead><tr><th>Score</th><th>Probabilité</th></tr></thead><tbody>${current.scores.slice(0,5).map(s=>`<tr><td><b>${selected.home} ${s.s} ${selected.away}</b></td><td>${pct(s.p)}</td></tr>`).join("")}</tbody></table>
+<div class="section-title" style="margin-top:18px"><h3>Indicateurs d'équipe (démo)</h3></div>
+<div class="formrow"><div class="prob"><span>Forme ${selected.home}</span><strong style="font-size:15px">${selected.formH}</strong><div class="smallnote">Buts attendus: ${selected.lh.toFixed(2)}</div></div><div class="prob"><span>Forme ${selected.away}</span><strong style="font-size:15px">${selected.formA}</strong><div class="smallnote">Buts attendus: ${selected.la.toFixed(2)}</div></div></div>
+<div class="warning">Estimation illustrative uniquement : les paramètres de buts sont prédéfinis. Une vraie prévision doit utiliser l'historique, la force des adversaires, domicile/extérieur, absences et calibration hors échantillon.</div>`;
+compareOdds()}
+function compareOdds(){if(!current)current=calc(selected);let odds=[+document.getElementById("odd1").value,+document.getElementById("oddx").value,+document.getElementById("odd2").value];if(odds.some(x=>!Number.isFinite(x)||x<=1)){document.getElementById("oddsResult").innerHTML='<span style="color:var(--red)">Saisis trois cotes décimales supérieures à 1,00.</span>';return}let raw=odds.map(o=>1/o),sum=raw.reduce((a,b)=>a+b,0),market=raw.map(x=>x/sum),model=[current.h,current.d,current.a],names=["Victoire domicile","Match nul","Victoire extérieur"];document.getElementById("oddsResult").innerHTML=`<table class="table" style="margin-top:12px"><thead><tr><th>Marché</th><th>Modèle</th><th>Marché sans marge*</th><th>Écart</th></tr></thead><tbody>${model.map((p,i)=>`<tr><td>${names[i]}</td><td>${pct(p)}</td><td>${pct(market[i])}</td><td class="${p-market[i]>0.03?'value':''}">${(100*(p-market[i])>0?'+':'')+(100*(p-market[i])).toFixed(1)} pts</td></tr>`).join("")}</tbody></table><div class="smallnote">Marge théorique des cotes saisies : ${((sum-1)*100).toFixed(1)}%. *Probabilités de marché normalisées. Un écart positif n'indique pas à lui seul un pari rentable : la qualité du modèle doit être validée.</div>`}
+document.getElementById("league").addEventListener("change",renderMatches);document.getElementById("market").addEventListener("change",renderMatches);document.getElementById("compare").addEventListener("click",compareOdds);renderMatches();analyze(1);
+</script>
+</body></html>
